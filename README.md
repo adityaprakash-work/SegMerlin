@@ -58,19 +58,19 @@ model = SegMerlinWLGBMS(feature_extractor=my_feature_extractor, init_model=my_in
 
 ## Example
 
-# Example usage of SegMerlinWLGBMS for image segmentation
+### Example usage of SegMerlinWLGBMS for image segmentation
 
 from SegMerlinWLGBMS import SegMerlinWLGBMS
 
-# Create a model instance
+### Create a model instance
 model = SegMerlinWLGBMS(feature_extractor=my_feature_extractor, input_shape=(720, 1280))
 
-# Add a predictor
+### Add a predictor
 model.add_predictor(Name='my_predictor', tile_shape=(256, 256), tile_thresh=0.8, lgbm_params=LGBM_DEFAULTS)
 
-# Fit the predictor
+### Fit the predictor
 model.fit_predictor(predictor_names=['my_predictor'], images=[my_image], masks=[my_mask], fit_type='train', nb_rounds_for_trainfit=100)
 
-# Segment the image
+### Segment the image
 segmentation = model.predict(image_list=[my_image], predictor_names=['my_predictor'], filter_strength=255/1.5)
 
